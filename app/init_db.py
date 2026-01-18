@@ -1,9 +1,12 @@
 from sqlalchemy.orm import Session
+import os
 from app.database import SessionLocal, engine
 from app import models
 
 
 def init_db():
+    os.makedirs("/app/data", exist_ok=True)
+
     models.Base.metadata.create_all(bind=engine)
 
     db: Session = SessionLocal()
