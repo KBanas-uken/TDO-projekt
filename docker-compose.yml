@@ -12,10 +12,6 @@ services:
       DATABASE_URL: sqlite:////app/data/dev.db
     restart: unless-stopped
 
-volumes:
-  sqlite-data:
-      - sqlite_data:/app/data
-
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -36,3 +32,6 @@ volumes:
       - ./grafana/dashboards:/etc/grafana/dashboards
     depends_on:
       - prometheus
+
+volumes:
+  sqlite-data:
