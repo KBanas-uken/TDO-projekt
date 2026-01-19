@@ -27,19 +27,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push $IMAGE_NAME
-
-
-#      - name: Deploy to server
-#        uses: appleboy/ssh-action@v1.0.3
-#        with:
-#          host: ${{ secrets.DEPLOY_HOST }}
-#          username: ${{ secrets.DEPLOY_USER }}
-#          key: ${{ secrets.DEPLOY_SSH_KEY }}
-#          script: |
-#            docker pull ghcr.io/${{ github.repository }}:latest
-#            docker stop fastapi-app || true
-#            docker rm fastapi-app || true
-#            docker run -d \
-#              --name fastapi-app \
-#              -p 8000:8000 \
-#              ghcr.io/${{ github.repository }}:latest
