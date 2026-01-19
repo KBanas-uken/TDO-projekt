@@ -36,6 +36,3 @@ volumes:
       - ./grafana/dashboards:/etc/grafana/dashboards
     depends_on:
       - prometheus
-
-volumes:
-  sqlite_data:
